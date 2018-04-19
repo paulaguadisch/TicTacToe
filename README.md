@@ -3,6 +3,9 @@ Projet TicTacToe
 On a fait 2 versions.... Les deux ne sont pas finies puisqu'on a du tout changer au milieu 
 car on utilisait des $ pour pouvoir utiliser les variables en dehors des classes.
 
+V1 - fonctionnelle mais en utilisant les $
+V2 - plus sexy et plus axée objet mais il manque pas mal de choses..
+
 Please be nice.....
 
 Réalisé par la Team Courgette avec amour, sueur et perte de neurones :
