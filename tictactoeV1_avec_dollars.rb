@@ -1,36 +1,38 @@
 class Players
     attr_accessor :player1, :player2
     def initialize
-        @player1 = player1
+        @player1 = player1 #on initialize deux joueurs
         @player2 = player2
     end
-    def whats_your_name_p1
+    def whats_your_name_p1 #on demande le nom du j1 et un message d'acceuil
         $player1 = gets.chomp
         puts "\nHey #{@player1} \n"
         puts "-------------------------------------------------------------------"
     end
-    def whats_your_name_p2
+    def whats_your_name_p2 #on demande le nom du j2 et un message d'acceuil
         $player2 = gets.chomp
         puts "\nHello #{@player2} \n"
     end
 end
+
 ##########################################
+
 class Game
-    def welcome_player1
+    def welcome_player1 #on welcome le joueur 1 et on lui demande son nom
         puts "\nHey bros, Welcome to the new TicTacToe Gaame ! Ready for the show ? \n"
         puts "-------------------------------------------------------------------"
         print "But first, please enter your name player 1! ---> "
     end
-    def welcome_player2
+    def welcome_player2 #on welcome le player 2 et on lui demande son nom
         print "Second player please do the same ! --->  "
     end
-    def show_the_table
+    def show_the_table #on présente l'arène de jeu
         puts "\nVoici l'arène les petits girls/boys :"
     end
     
-    def lets_play_player1
+    def lets_play_player1 #tour de joueur 1, on lui demande de faire un choix
         print "#{$player1} it's your turn bro, tell us where you wanna play: "
-        choice = gets.chomp.to_s
+        choice = gets.chomp.to_s #on enregistre son choix dans choice
         if choice == "A1" then $choices[0]="X"
           elsif choice == "B1" then $choices[1]="X"
           elsif choice == "C1" then $choices[2]="X"
@@ -42,7 +44,7 @@ class Game
           else $choices[8]="X"
         end
     end
-    def lets_play_player2
+    def lets_play_player2 #on fait la même chose que pour le player 1 avec le player 2
         print "#{$player2} it's your turn bro, tell us where you wanna play: "
         choice = gets.chomp.to_s
         if choice == "A1" then $choices[0]="O"
@@ -56,7 +58,7 @@ class Game
           else $choices[8]="X"
         end
     end
-    def win
+    def win #on définit les conditions de victoires
         if choice == $choice[0]="X" && $choice[1]="X" && $choice[2]="X"
         puts "Congratulation #{$player1} you are a beast"
     else
@@ -64,8 +66,10 @@ class Game
     end
     end
 end
+
 ##########################################
-class Board
+
+class Board #on dessine le tableau en partant des cases vides en choices et enf faisant des boucles sur ce même tableau pour chaque lignes
 $choices = [" "," ", " ", " "," "," "," ", " ", " "]
     def show_the_board
         print "\n    A     B     C"+"\n"
@@ -93,26 +97,34 @@ $choices = [" "," ", " ", " "," "," "," ", " ", " "]
         print "\n"
     end
 end
+
 ##########################################
-class BoardCase
+
+class BoardCase 
   attr_accessor :name_case
   def initialize(name_case)
     @name_case = name_case
   end
 end
+
 ##########################################
-nouvelle_partie = Game.new
-nouvelle_partie.welcome_player1
-player1 = Players.new
+
+nouvelle_partie = Game.new #on lance la partie
+nouvelle_partie.welcome_player1 #on welcome j1
+
+player1 = Players.new #on demande à j1 de jouer
 player1.whats_your_name_p1
-nouvelle_partie.welcome_player2
+
+nouvelle_partie.welcome_player2 #on demande à j2 de jouer
 player2 = Players.new
-player2.whats_your_name_p2
+
+player2.whats_your_name_p2 #on demande le nom de j2
 nouvelle_partie.show_the_table
-board = Board.new
+
+board = Board.new #on affiche le board
 board.show_the_board
 
-(0..9).each do
+(0..5).each do #on déroule la partie avec la boucle suivante
   nouvelle_partie.lets_play_player1
   board.show_the_board
   nouvelle_partie.lets_play_player2
